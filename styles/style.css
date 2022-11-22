@@ -1,0 +1,35 @@
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   scroll-behavior: smooth;
+}
+
+.container{
+   max-width: 1400px  !important ;
+}
+
+.body{
+   background-color: rgb(0, 0, 0);
+}
+
+.wrapper{
+   display: grid;
+   grid-template-columns: repeat(auto-fill , minmax(264px , 1fr));
+   gap: 75px;
+}
+
+
+.card-top-img{
+   height: 200px;
+}
+
+.header{
+   z-index: 34335;
+   background-color: #fff;
+}
+
+   
+.bascgrount{
+   background-color: rgba(214, 206, 206, 0.476);
+}
