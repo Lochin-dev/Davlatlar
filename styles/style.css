@@ -13,6 +13,83 @@ body {
   overflow-x:hidden !important ;
 }
 
+
+
+
+body.active {
+  background-color: rgb(20, 19, 19);
+   transition: all 0.3s ease-in-out;
+}
+
+body.active .sidebar {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 22;
+  background-color: rgba(0, 0, 0, 0.596);
+  top: 45px;
+  right: 0;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease-in-out;
+
+}
+
+body.active header {
+  background-color: rgba(74, 74, 74, 0.998);
+   transition: all 0.3s ease-in-out;
+}
+
+.natija {
+  color: #fff;
+   transition: all 0.3s ease-in-out;
+}
+
+body.active .form-select{
+  background-color: rgba(74, 74, 74, 0.998);
+   transition: all 0.3s ease-in-out;
+}
+
+body.active .text {
+  color: white;
+   transition: all 0.3s ease-in-out;
+}
+
+body.active .span {
+  color: white;
+   transition: all 0.3s ease-in-out;
+}
+
+body.active .card{
+  background-color: rgba(74, 74, 74, 0.521);
+   transition: all 0.3s ease-in-out;
+}
+
+body.active .form-control{
+   background-color: rgba(74, 74, 74, 0.521);
+   transition: all 0.3s ease-in-out;
+}
+
+body.active .listlar {
+   color: white;
+   background-color: rgba(74, 74, 74, 0.521);
+   transition: all 0.3s ease-in-out;
+}
+
+body.active .list-unstyled {
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+body.active .card-title {
+  color: white;
+   transition: all 0.3s ease-in-out;
+}
+
+ .list-bg{
+  background-color: rgba(74, 74, 74, 0.521);
+  transition: all 0.3s ease-in-out;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(264px, 1fr));
@@ -41,8 +118,8 @@ body {
   top: 45px;
   right: 0;
   backdrop-filter: blur(10px);
-  transition: all 0.5s ease-in-out;
-
+  transition: all 0.3s ease-in-out;
+  overflow-y: scroll;
 }
 
 .swipe{
@@ -51,7 +128,7 @@ body {
    -moz-transform: translateX(200%);
    -ms-transform: translateX(200%);
    -o-transform: translateX(200%);
-   transition: all 0.5s ease-in-out;
+   transition: all 0.3s ease-in-out;
    -webkit-transition: all 0.5s ease-in-out;
    -moz-transition: all 0.5s ease-in-out;
    -ms-transition: all 0.5s ease-in-out;
@@ -60,9 +137,6 @@ body {
 
 
 .loader {
-  position: relative;
-  top: 100px;
-  left: 600px;
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid blue;

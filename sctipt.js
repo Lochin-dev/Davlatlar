@@ -25,7 +25,7 @@ function dataRender(data = []) {
   data.forEach((e) => {
     const card = createElement(
       "div",
-      "card shadow-ig",
+      "card shadow-lg",
       `
    <img src="${e.flags.svg}" alt="bayroq" class="card-top-img">
             <div class="card-body p-4">
@@ -72,7 +72,7 @@ $("#search").addEventListener("keypress", (e) => {
     setTimeout(() => {
       $(".wrapper").innerHTML = "";
       findCountry(e.target.value);
-    }, 1500);
+    }, 1000);
   }
 });
 
@@ -87,7 +87,7 @@ async function findCountry(country) {
   } else {
     $(
       ".info"
-    ).innerHTML = `<h1 class='text-center'> QIDIRUV NATIJASI: ${data.length} TA</h1>`;
+    ).innerHTML = `<h1 class='text-center qidiruv'> QIDIRUV NATIJASI: ${data.length} TA</h1>`;
     dataRender(data);
   }
 }
@@ -123,7 +123,7 @@ async function sortCountry(region) {
     } else {
       $(
         ".info"
-      ).innerHTML = `<h1 class='text-center'> QIDIRUV NATIJASI: ${data.length} TA</h1>`;
+      ).innerHTML = `<h1 class='text-center qidiruv'> QIDIRUV NATIJASI: ${data.length} TA</h1>`;
       dataRender(data);
     }
   }
@@ -135,6 +135,7 @@ $(".wrapper").addEventListener("click", (e) => {
     let id = e.target.getAttribute("data-id");
     getCountry(id);
     $(".sidebar").classList.remove("swipe");
+    $('body').style.overflow=`hidden`
   }
 });
 
@@ -158,11 +159,11 @@ async function getCountry(country) {
     <img src="${svg}" class="p-5 mt-5" width="420" id="img-country">
   </div>
   <div class="col-md-7 p-5 mt-5">
-    <ul class="list-group">
-      <li class="list-group-item" id="cName">Country:${name}</li>
-      <li class="list-group-item">Population: ${population}</li>
-      <li class="list-group-item">Region:${region}</li>
-      <li class="list-group-item">Capital: ${capital}</li>
+    <ul class="bg-dark list-group">
+      <li class="list-group-item listlar" id="cName">Country:${name}</li>
+      <li class="list-group-item listlar">Population: ${population}</li>
+      <li class="list-group-item listlar">Region:${region}</li>
+      <li class="list-group-item listlar">Capital: ${capital}</li>
     </ul>
   </div>
 `
@@ -170,38 +171,22 @@ async function getCountry(country) {
   $(".country-info").appendChild(row);
 }
 
-$(".close").addEventListener("click", (e) => {
+$(".close").addEventListener("click", () => {
   $(".sidebar").classList.add("swipe");
-  $("body").style.overflow = "visibel";
+  $("body").style.overflow = "visible";
 });
 
 // TUNGI REJIM
 
-$(".white").addEventListener("click", () => {
-  // $(".card").forEach(() => {
-  //   $(".card").classList.add("bg-");
-  // });
+$(".bi-brightness-high").addEventListener("click", (e) => {
+  if (e.target.getAttribute("class") == "bi bi-brightness-high me-3") {
+    e.target.setAttribute("class", "bi bi-moon me-3 ");
+    $("body").classList.add("active");
+    $(".qidiruv").classList.add("natija");
+  } else {
+    e.target.setAttribute("class", "bi bi-brightness-high me-3");
 
-  $(".white").classList.toggle("d-none");
-  $(".dark").classList.toggle("d-none");
-  $("header").classList.toggle("bg-secondary");
-  $("body").setAttribute("class", "text-light bg-dark");
-
-  $(".form-control").classList.toggle("bg-secondary");
-  $(".form-select").classList.toggle("bg-secondary");
-});
-
-$(".dark").addEventListener("click", () => {
-  // $(".card").forEach(() => {
-  //   $(".card").classList.remove("bg-");
-  // });
-
-  $(".white").classList.toggle("d-none");
-  $(".dark").classList.toggle("d-none");
-  $("body").classList.toggle("bg-dark");
-  $("header").classList.toggle("bg-secondary");
-  $("body").setAttribute("class", "text-dark ");
-
-  $(".form-control").classList.toggle("bg-secondary");
-  $(".form-select").classList.toggle("bg-secondary");
-});
+    $("body").classList.remove("active");
+    $(".qidiruv").classList.remove("natija");
+  }
+})
