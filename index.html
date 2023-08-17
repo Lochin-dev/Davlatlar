@@ -1,71 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- BOOTSTRAP ICONS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <!-- BOOTSTRAP MIN CSS -->
+    <link rel="stylesheet" href="./styles/bootstrap.min.css" />
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Davlarlar haqida ma'lumot</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- BOOTSTRAP ICONS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
-  <!-- BOOTSTRAP MIN CSS -->
-  <link rel="stylesheet" href="./styles/bootstrap.min.css" />
-  <!-- MAIN CSS -->
-  <link rel="stylesheet" href="./styles/style.css" />
-  <title>Davlarlar haqida ma'lumot</title>
-</head>
-
-<body class="text-dark">
-  <header class="shadow fixed-top header">
-    <div class="container">
-      <nav class="nav p-3 d-flex justify-content-between">
-        <h2 class="text">Where in the world?</h2>
-          <span class="span"><i class="bi bi-brightness-high me-3" id="high"></i>White Mode</span>
-      </nav>
-    </div>
-  </header>
-  <main class="mt-5 pt-5">
-    <section class="main">
+  <body class="text-dark">
+    <header class="shadow fixed-top header">
       <div class="container">
+        <nav class="nav d-flex justify-content-between align-items-center">
+          <a href="#"
+            ><img class="logatip" src="./img/logatip_LochinDev.png" alt="logo"
+          /></a>
 
-        <div class="sipinner row">
-       
-        </div>
-
-        <div class="row  ">
-          <div class="col-md-4 col-ms-12 p-3 mt-2">
-            <input id="search" type="text" class=" form-control p-3" placeholder="Search for a country…">
+          <div class="qidiruv w-25">
+            <input
+              onkeypress="myFunction()"
+              id="search"
+              type="search"
+              class="form-control p-1"
+              placeholder="Search for a country…"
+            />
           </div>
-          <div class="col-ms-12 col-md-8 mt-2 p-3 d-md-flex justify-content-md-end">
-            <select id="region" class=" form-select p-3 w-25">
+          <div class="w-25">
+            <select id="region" class="form-select p-1">
               <option selected disabled>Filter by Region</option>
             </select>
           </div>
-        </div>
+          <!--  Whit  Mode -->
+          <label class="ui-switch">
+            <input type="checkbox" />
+            <div class="slider">
+              <div class="circle kun"></div>
+            </div>
+          </label>
+        </nav>
+      </div>
+    </header>
+    <main class="mt-5 pt-5">
+      <section class="main">
+        <div class="container">
+          <div class="sipinner row"></div>
 
-        <div class="row mt-5">
-          <div class="info"> </div>
-          <div class="wrapper">
+          <!-- <div class="row">
+            <div class="col-md-4 col-ms-12 p-3 mt-2">
+              <input
+                id="search"
+                type="text"
+                class="form-control p-3"
+                placeholder="Search for a country…"
+              />
+            </div>
+            <div
+              class="col-ms-12 col-md-8 mt-2 p-3 d-md-flex justify-content-md-end"
+            >
+              <select id="region" class="form-select p-3 w-25">
+                <option selected disabled>Filter by Region</option>
+              </select>
+            </div>
+          </div> -->
 
+          <div class="row mt-5">
+            <div class="info"></div>
+            <div class="wrapper_loader"></div>
+            <div class="wrapper"></div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <div class="sidebar swipe text-ganger">
-      
-      <div class="container">
-        <button class="close btn btn-danger mt-5">close</button>
-        <div class="country-info">
-          
+      <div class="sidebar swipe text-ganger">
+        <div class="container">
+          <button class="close btn btn-danger mt-5">close</button>
+          <div class="country-info"></div>
         </div>
-          
       </div>
-    </div>
-  </main>
-
-</body>
-<!--MAIN SCRIPT  -->
-<script src="./scripts/utils.js"></script>
-<script src="./sctipt.js"></script>
-
+    </main>
+  </body>
+  <!--MAIN SCRIPT  -->
+  <script src="./scripts/utils.js"></script>
+  <script src="./sctipt.js"></script>
 </html>

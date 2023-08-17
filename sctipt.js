@@ -7,11 +7,11 @@ const baseURL = "https://restcountries.com/v2";
 const getAllCountries = async () => {
   const countries = await fetch(`${baseURL}/all`);
   const result = await countries.json();
-  $(".wrapper").innerHTML = `<div class="loader"></div>`;
+  $(".wrapper_loader").innerHTML = `<div class="loader"></div>`;
   setTimeout(() => {
-    $(".wrapper").innerHTML = "";
+    $(".wrapper_loader").innerHTML = "";
     dataRender(result);
-  }, 2000);
+  }, 1000);
 
   diynamicCategory(result);
 };
@@ -50,6 +50,7 @@ function dataRender(data = []) {
 
 // ------------------------------
 function diynamicCategory(data) {
+
   const category = [];
 
   data.forEach((e) => {
@@ -66,11 +67,12 @@ function diynamicCategory(data) {
   });
 }
 
-$("#search").addEventListener("keypress", (e) => {
-  $(".wrapper").innerHTML = `<div class="loader"></div>`;
+$("#search").addEventListener("keydown", (e) => {
+  $(".wrapper").innerHTML = ``;
+  $(".wrapper_loader").innerHTML = `<div class="loader"></div>`;
   if (e.target.value.trim().length !== 0 && e.keyCode === 13) {
     setTimeout(() => {
-      $(".wrapper").innerHTML = "";
+      $(".wrapper_loader").innerHTML = "";
       findCountry(e.target.value);
     }, 1000);
   }
@@ -94,11 +96,12 @@ async function findCountry(country) {
 // ---------------- FIND COUNTRIES END------------------
 
 $("#region").addEventListener("change", (e) => {
-  $(".wrapper").innerHTML = `<div class="loader"></div>`;
+  $(".wrapper").innerHTML = ``;
+  $(".wrapper_loader").innerHTML = `<div class="loader"></div>`;
   setTimeout(() => {
-    $(".wrapper").innerHTML = "";
+    $(".wrapper_loader").innerHTML = "";
     sortCountry(e.target.value.toLowerCase());
-  }, 1500);
+  }, 1000);
 });
 
 async function sortCountry(region) {
@@ -135,7 +138,7 @@ $(".wrapper").addEventListener("click", (e) => {
     let id = e.target.getAttribute("data-id");
     getCountry(id);
     $(".sidebar").classList.remove("swipe");
-    $('body').style.overflow=`hidden`
+    $('body').style.overflow = `hidden`
   }
 });
 
@@ -160,9 +163,9 @@ async function getCountry(country) {
   </div>
   <div class="col-md-7 p-5 mt-5">
     <ul class="bg-dark list-group">
-      <li class="list-group-item listlar" id="cName">Country:${name}</li>
+      <li class="list-group-item listlar" id="cName">Country: ${name}</li>
       <li class="list-group-item listlar">Population: ${population}</li>
-      <li class="list-group-item listlar">Region:${region}</li>
+      <li class="list-group-item listlar">Region: ${region}</li>
       <li class="list-group-item listlar">Capital: ${capital}</li>
     </ul>
   </div>
@@ -178,13 +181,14 @@ $(".close").addEventListener("click", () => {
 
 // TUNGI REJIM
 
-$(".bi-brightness-high").addEventListener("click", (e) => {
-  if (e.target.getAttribute("class") == "bi bi-brightness-high me-3") {
-    e.target.setAttribute("class", "bi bi-moon me-3 ");
+
+$(".circle").addEventListener("click", (e) => {
+  if (e.target.getAttribute("class") == "circle kun") {
+    e.target.setAttribute("class", "circle tun ");
     $("body").classList.add("active");
     $(".qidiruv").classList.add("natija");
   } else {
-    e.target.setAttribute("class", "bi bi-brightness-high me-3");
+    e.target.setAttribute("class", "circle kun");
 
     $("body").classList.remove("active");
     $(".qidiruv").classList.remove("natija");
