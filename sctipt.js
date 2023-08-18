@@ -182,14 +182,15 @@ $(".close").addEventListener("click", () => {
 // TUNGI REJIM
 
 
-$(".circle").addEventListener("click", (e) => {
-  if (e.target.getAttribute("class") == "circle kun") {
-    e.target.setAttribute("class", "circle tun ");
+$(".slider").addEventListener("click", (e) => {
+  if (e.target.getAttribute("class") == "slider kun") {
+    e.target.setAttribute("class", "slider tun ");
+    $(".filter_option1").classList.add('filter_option2')
     $("body").classList.add("active");
     $(".qidiruv").classList.add("natija");
   } else {
-    e.target.setAttribute("class", "circle kun");
-
+    e.target.setAttribute("class", "slider kun");
+    $(".filter_option1").classList.remove('filter_option2')
     $("body").classList.remove("active");
     $(".qidiruv").classList.remove("natija");
   }
